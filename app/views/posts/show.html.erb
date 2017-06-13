@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+    <div class="post-preview">		                
+    	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">              
+        	<p><%= @post.content %></p>
+
+        	<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default"%>
+            <%= link_to 'Back', posts_path, class: "btn btn-default" %>
+
+        </div>
+    </div>
+</div>
+

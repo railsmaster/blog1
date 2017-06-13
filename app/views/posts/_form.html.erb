@@ -1,0 +1,72 @@
+<br>
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form name="sentMessage" id="contactForm" novalidate>
+
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label>Title</label>
+        <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  
+   <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label>Content</label>
+        <%= f.text_area :content, class: "form-control", placeholder: "Content"  %>
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  
+
+  <br>
+  <br>
+
+  <% if action_name == 'new' %>
+    
+    <div class="row">
+          <div class="form-group col-xs-12">
+              <%= f.submit :submit, class: "btn btn-default" %>
+              <%= link_to 'Back', posts_path, class: "btn btn-default" %>
+          </div>
+    </div>
+
+  <% elsif action_name == 'edit' %>
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+
+          <%= f.submit :submit, class: "btn btn-default" %>
+          <%= link_to 'Back', posts_path,  class: "btn btn-default"  %>
+
+        </div>
+    </div>
+
+   <% else %>
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+
+          <%= link_to 'Show',post_path, class: "btn btn-default" %>
+          <%= link_to 'Back', posts_path,  class: "btn btn-default"  %>
+
+        </div>
+    </div>
+
+  <% end %>
+
+</form>
+
+<% end %>
