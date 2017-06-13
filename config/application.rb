@@ -13,6 +13,7 @@ module Blog
     # -- all .rb files in that directory are automatically loaded.
 
 	config.assets.paths << Rails.root.join("vendor", "assets")
+	config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
 
   end
 end
