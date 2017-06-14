@@ -11,12 +11,18 @@ module PostsHelper
 
 	def get_style
 		
-		if action_name == 'index' 
+
+
+        if controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords'
+        	style = asset_path("img/home-bg.jpg")
+
+		
+		elsif action_name == 'index'  
         	style = asset_path("img/home-bg.jpg")
 
         elsif action_name == 'new'
-        	style = asset_path("img/contact-bg.jpg")
-
+        		style = asset_path("img/contact-bg.jpg")
+ 
         elsif action_name == 'show'
         	style = asset_path("img/post-bg.jpg")
 		
@@ -32,7 +38,10 @@ module PostsHelper
 
 	def get_heading post
 
-		if action_name == 'index' 
+		if controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords'
+			heading = 'Blogger'
+
+		elsif action_name == 'index' 
         	heading = 'Blogger'
 
         elsif action_name == 'new'
@@ -53,7 +62,10 @@ module PostsHelper
 
     def get_subheading post
 
-    	if action_name == 'index' 
+    	if controller_name == 'registrations' || controller_name == 'sessions' || controller_name == 'passwords'
+    		subheading = 'Create | Read | Update | Delete Blogs'
+
+    	elsif action_name == 'index' 
         	subheading = 'Create | Read | Update | Delete Blogs'
 
         elsif action_name == 'new'
