@@ -4,3 +4,5 @@
 
 Rack::Mime::MIME_TYPES['.woff'] = 'application/x-font-woff'
 Rack::Mime::MIME_TYPES['.woff'] = 'application/x-font-woff2'
+
+#https://fathomless-hamlet-58564.herokuapp.com/posts
