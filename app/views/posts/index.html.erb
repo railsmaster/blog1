@@ -8,7 +8,15 @@
                       <%= post.title %>
                   </h2>
               <%end%>
-            <p class="post-meta">Posted on <%= readable_date(post.created_at) %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p> 
+              
+              <p class="post-meta">Posted <%= readable_date(post.created_at) %> ago
+                
+                <% if user_signed_in? and post.user_id == current_user.id %>
+                  | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p> 
+                <%end%>
+
+              </p>
+
               <hr>
           </div>
         <%end%>
