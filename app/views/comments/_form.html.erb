@@ -16,9 +16,19 @@
           <div class="panel panel-default">
             <div align="left" class="panel-heading">
               <small>
+
+                <% @user = User.find_by_id(comment.user_id) %>
+                <strong><%= @user.email %> </strong> 
                 
-                <strong><%=current_user.email%> </strong> 
-                <%= link_to 'Delete', [comment.post, comment], style: 'text-align: right',method: :delete,data: { confirm: 'Are you sure?' } %>
+                <% @admin = User.find_by_id(post.user_id) %>
+
+                
+                
+                <% if current_user.id == @user.id or current_user.id == @admin.id %>
+                  <%= link_to 'Delete', [comment.post, comment], style: 'text-align: right',method: :delete,data: { confirm: 'Are you sure?' } %>
+                <%end %>
+
+
               </small>
             </div>
 
